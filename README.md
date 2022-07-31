@@ -19,8 +19,10 @@ Run Server:
 ```python manage.py runserver```
 
 cURL Request:
-```curl --request GET \
-  --url http://localhost:8000/reservations/```
+```
+curl --request GET \
+  --url http://localhost:8000/reservations/
+```
 
 
 

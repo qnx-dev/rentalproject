@@ -18,6 +18,9 @@ Migrate:
 Run Server:
 ```python manage.py runserver```
 
-One liner:
-```pip install -r requirements.txt && py -m venv env && source env/Scripts/activate && python manage.py makemigrations && python manage.py migrate --run-syncdb && python manage.py migrate && python manage.py runserver```
+cURL Request:
+```curl --request GET \
+  --url http://localhost:8000/reservations/```
+
+
 

@@ -8,6 +8,7 @@ from .serializers import ReservationSerializer
 
 class SeeReservations(APIView):
     def get(self, request):
+        populateData()
         dataset = []
         query = Reservation.objects.all().values(
             'rental__name',
@@ -33,3 +34,38 @@ class SeeReservations(APIView):
         return Response(res)
 
 
+def populateData():
+    Rental.objects.create(name='Rental 1')
+    Rental.objects.create(name='Rental 2')
+
+    # Rental 1
+    Reservation.objects.create(rental=Rental.objects.get(
+        name='Rental 1'),
+        checkin = "2022-01-01",
+        checkout = "2022-01-13"
+        )
+    #Rental 1
+    Reservation.objects.create(rental=Rental.objects.get(
+        name='Rental 1'),
+        checkin = "2022-01-20",
+        checkout = "2022-02-10"
+        )
+    #Rental 1
+    Reservation.objects.create(rental=Rental.objects.get(
+        name='Rental 1'),
+        checkin = "2022-02-20",
+        checkout = "2022-03-10"
+        )
+
+    #Rental 2
+    Reservation.objects.create(rental=Rental.objects.get(
+        name='Rental 2'),
+        checkin = "2022-01-02",
+        checkout = "2022-01-20"
+        )
+    #Rental 2
+    Reservation.objects.create(rental=Rental.objects.get(
+        name='Rental 2'),
+        checkin = "2022-01-20",
+        checkout = "2022-02-11"
+        )
